@@ -137,3 +137,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Sensitive
+*sensitive*
+
+.idea*
+.idea/vcs.xml
+.idea\vcs.xml
+.idea/vcs.xml

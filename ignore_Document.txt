@@ -1,0 +1,31 @@
+
+"""
+========================================================================
+
+
+#Profile - Refactor this to use requests instead, or time it. Goes to profile, grabs name and rank
+profile_url = 'https://www.hackthebox.eu/home/users/profile/2846'
+driver.get(profile_url)
+soup = BeautifulSoup(driver.page_source, 'lxml')
+
+username = soup.find('div', class_='header-title').h3
+print username.text
+
+rank_div = soup.find('div', class_='header-title').small
+ruser_ank = rank_div.find('span', class_='c-white')
+print user_rank.text
+
+driver.quit()
+=======================================
+#Dumps selenium cookies into a requests session(which is faster than selenium) so now I can go to profiles quickly
+#within the loop and get user info
+cookies = driver.get_cookies()
+r = requests.Session()
+for cookie in cookies:
+    r.cookies.set(cookie['name'], cookie['value'])
+html = r.get('https://www.hackthebox.eu/home').content
+soup = BeautifulSoup(html, 'lxml')
+print 'Requests' + str(soup.title)
+#print r.cookies
+
+"""
